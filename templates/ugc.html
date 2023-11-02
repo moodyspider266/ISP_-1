@@ -1,0 +1,332 @@
+
+{% extends 'base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% block title %}UGC/AICTE Scholarships{% endblock title %}
+
+  <!-- bootstrap  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/90ea645b5c.js" crossorigin="anonymous"></script>
+
+  <!-- css -->
+  <link rel="stylesheet" href="ss.css">
+
+  <!-- JavaScript -->
+  <script defer src="new.js"></script>
+</head>
+
+
+{% block body %}
+
+
+
+<section class="headertop">
+
+  <div class="col-lg-15">
+    <h1 class="text-center">UGC/AICTE Scholarships</h1>
+
+  </div>
+
+  </div>
+  </div>
+</section>
+
+
+
+<section class="contentsection pt-3 mb-2">
+  <div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card mb-2">
+          <div class="card-header notificationbg bg-primary">
+            <span class="text-white notification">
+              <i class="fa fa-bullhorn"></i> Notice Board - For Students
+            </span>
+          </div>
+          <div class="card-body notificationbody border border-primary">
+            <marquee onMouseOver="this.stop()" onMouseOut="this.start()" behavior="scroll" scrollamount="3"
+              direction="up" loop="infinite" height="165px">
+              <ul class="notificationlist list-unstyled text-justify">
+
+
+                <li>
+                  <i class="fa fa-info-circle">
+                  </i>&nbsp;All grievances related to delay in Application Verification, Scheme Selection / Eligibility,
+                  extension of verification dates,
+                  delay in Scholarship Payment should be addressed to the grievance redressal / Nodal officer of the
+                  concerned scheme owner ministry / Department.
+                  The details of grievance redressal / nodal officers is available under “Officer’s Information” section
+                  at “Officer’s Corner”section on the portal.
+                </li>
+                <li>
+                  <i class="fa fa-info-circle">
+                  </i>&nbsp;For problems related to the portal’s workflow, ie. functional or operational problems
+                  cropped up while operating NSP,
+                  Applicants and Institutes may contact NSP Helpdesk through email at helpdesk[at]nsp[dot]gov[dot]in or
+                  through phone at 0120 – 6619540(from 8 AM to 8 PM on all days, excluding holidays)
+                </li>
+                <li>
+                  <i class="fa fa-info-circle">
+                  </i>&nbsp;Students applying from the State of Jharkhand in “CENTRAL SECTOR SCHEME OF SCHOLARSHIPS FOR
+                  COLLEGE AND UNIVERSITY STUDENTS” of MHRD (DOHE) are requested to enter their 12th Roll code along with
+                  their roll no in the
+                  application form.
+                  For example – Roll Code is 11066 and Roll No is 20168 For Jharkhand Board Students then enter
+                  1106620168 (RollcodeRollNo) in Roll No Column of Application.
+                </li>
+
+              </ul>
+            </marquee>
+          </div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-header notificationbg bg-primary">
+            <span class="text-white notification">
+              <i class="fa fa-newspaper-o"></i> Notice Board - For Institutes
+            </span>
+          </div>
+          <div class="card-body notificationbody border border-info">
+            <marquee onMouseOver="this.stop()" onMouseOut="this.start()" behavior="scroll" scrollamount="3"
+              direction="up" loop="infinite" height="165px">
+              <ul class="notificationlist list-unstyled text-justify">
+
+                <li>
+                  <i class="fa fa-info-circle"></i>&nbsp;The institutes, not having login credentials are advised to
+                  fill the KYC Registration Form and get it approved by District Nodal Officer (DNO) or State Nodal
+                  Officer (SNO).
+                  Option to apply for Institute KYC Registration is available under “Institute Corner” section on the
+                  portal.
+                </li>
+                <li>
+                  <i class="fa fa-info-circle"></i>&nbsp;The detailed operational steps involved in filling the
+                  Institute KYC Registration Form is available under the option "Institute Information" at “Institute
+                  Corner”section on the portal.
+                </li>
+                <li>
+                  <i class="fa fa-info-circle"></i>&nbsp;All Institutes are advised to refer “Frequently Asked Questions
+                  (FAQs)” and “Institute Operational Manual” available under Institute Corner,
+                  for assistance on various operational issues related to Institute’s onboarding and operations.
+                </li>
+                <li>
+                  <i class="fa fa-info-circle"></i>&nbsp;INO can now do verifications by entering TOTP also by
+                  installing the maadhaar app in their mobile phones.
+                </li>
+
+
+              </ul>
+            </marquee>
+          </div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-header notificationbg bg-primary">
+            <span class="text-white notification">
+              <i class="fa fa-clipboard"></i> Notice Board - For Nodal Officers
+            </span>
+          </div>
+          <div class="card-body notificationbody border border-success">
+            <marquee onMouseOver="this.stop()" onMouseOut="this.start()" behavior="scroll" scrollamount="3"
+              direction="up" loop="infinite" height="165px">
+              <ul class="notificationlist list-unstyled text-justify">
+                <li>
+                  <i class="fa fa-info-circle"></i> The National Scholarships Portal has been launched for AY 2022-23.
+                  Students can apply for Scholarships(Fresh & Renewal) in AY 2022-23 w.e.f 20th July, 2022
+                </li>
+
+              </ul>
+            </marquee>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-8 activepage">
+        <ul class="nav nav-tabs tabsmenu">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="IntelligentScholarshipPortal.html">
+              {% comment %} <button type="button" class="btn btn-dark btn-md">Central Schemes</button> {% endcomment %}
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#a">
+              {% comment %} <button type="button" class="btn btn-dark btn-md">UGC / AICTE Schemes</button> {% endcomment
+              %}
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="state_schemes.html">
+              {% comment %} <button type="button" class="btn btn-dark btn-md">State Schemes</button> {% endcomment %}
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="private_schemes.html">
+              {% comment %} <button type="button" class="btn btn-dark btn-md">Private Schemes</button> {% endcomment %}
+
+            </a>
+          </li>
+        </ul>
+
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered table-style">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th style="width: 30%;">
+                  Scheme Name
+                </th>
+                <th>
+                  Scheme Closing Date
+                </th>
+                <th>
+                  Defective Application Verification Date
+                </th>
+                <th>
+                  Institute Verification
+                </th>
+                <th>
+                  DNO/SNO/MNO Verification
+                </th>
+                <th colspan="2">
+                  Guidelines
+                </th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr>
+                <td>
+                  ISHAN UDAY - Special Scholarship Scheme For North Eastern Region
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 31-10-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'>Open till 30-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <a href="https://scholarships.gov.in/public/schemeGuidelines/ISHAN_UDAY_GUIDELINE.pdf"
+                    target="_blank">Guidelines</a>
+                </td>
+
+              </tr>
+              <tr>
+                <td>
+                  PG INDIRA GANDHI SCHOLARSHIP FOR SINGLE GIRL CHILD
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 31-10-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'>Open till 30-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <a href="https://scholarships.gov.in/public/schemeGuidelines/Guidelines_SGC1819.pdf"
+                    target="_blank">Guidelines</a>
+                </td>
+
+              </tr>
+              <tr>
+                <td>
+                  PG SCHOLARSHIP FOR UNIVERSITY RANK HOLDERS(Ist and IInd RANK HOLDERS)
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 31-10-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'>Open till 30-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <a href="https://scholarships.gov.in/public/schemeGuidelines/GuidelinesUGCUniversityRankHolder1819.pdf"
+                    target="_blank">Guidelines</a>
+                </td>
+
+              </tr>
+              <tr>
+                <td>
+                  PG SCHOLARSHIP SCHEME FOR SC ST STUDENTS FOR PERSUING PROFESSIONAL COURSES
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 31-10-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'> Open till 15-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color='green'>Open till 30-11-2022</font>
+                </td>
+                <td class="text-danger text-center">
+                  <a href="https://scholarships.gov.in/public/schemeGuidelines/guidelines_pgsprof_gl1819.pdf"
+                    target="_blank">Guidelines</a>
+                </td>
+
+              </tr>
+            </tbody>
+            <tbody class="table-body">
+              {% for program in scholarship_program %}
+              <tr>
+                <td>
+                  {{ program.scheme_name }}
+                </td>
+                <td class="text-danger text-center">
+                  <font color="green"> Open till {{ program.scheme_closing_date }}</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color="green"> Open till {{ program.defective_app_verification_date }}</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color="green"> Open till {{ program.institute_verification_date }}</font>
+                </td>
+                <td class="text-danger text-center">
+                  <font color="green">Open till {{ program.dno_sno_mno_verification_date }}</font>
+                </td>
+                <td class="text-danger text-center">
+                  {% if program.guidelines_pdf %}
+                      <a href="{{ program.guidelines_pdf.url }}" target="_blank">Guidelines</a>
+                  {% else %}
+                      No Guidelines Available
+                  {% endif %}
+              </td>
+              
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+</section>
+
+{% endblock body %}
+
+</html>

@@ -1,0 +1,94 @@
+body {
+            background-color: #f7f7f7; /* Light gray background */
+            font-family: 'Poppins', sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            padding-bottom: 50px;
+        }
+
+        /* Style for inline elements in the navbar */
+        .navbar-inline {
+            display: inline-block;
+        }
+
+        /* Style for navbar links */
+        .navbar a {
+            text-decoration: none;
+            display: block;
+            padding: 15px 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            color: white; /* White text color */
+            transition: color 0.3s ease; /* Smooth text color transition */
+        }
+
+        /* Change link color on hover */
+        .navbar a:hover {
+            color: rgb(33,33,61); /* Blue text color on hover */
+            background-color: #fff; /* White background on hover */
+        }
+
+        /* Style for the active (selected) navbar item */
+.active {
+    background-color: rgb(33,33,61); /* Background color for the active item */
+    color: #fff; /* Text color for the active item */
+}
+
+
+        /* Style for the profile icon */
+        .profile-icon-png-910 {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        /* Style for the container-fluid */
+        .container-fluid {
+            background-color: #007bff; /* Blue background */
+            padding: 15px 0;
+            display: inline-block;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            color: white;
+        }
+        
+        .navbar-nav .dropdown-menu {
+            left: auto;
+            right: 0;
+        }
+
+        .navbar {
+            background-color: rgb(33,33,61); /* Blue background */
+        }
+
+        .dropdown-item {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .dropdown-menu {
+            background-color: #007bff;
+        }
+        
+        .text-center {
+            color: #007bff;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(33, 33, 61);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+          }
+
+          .your-submit-button-class {
+            position: relative;
+            z-index: 1001; /* Adjust the z-index value to be higher than the footer's z-index */
+          }

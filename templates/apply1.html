@@ -1,0 +1,121 @@
+{% extends 'base_no_footer.html' %}
+
+{% block title %}Private Organization Scholarship Application{% endblock title %}
+
+{% block css %}
+<style>
+  /* Add custom CSS for form styling */
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .mb-3 {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+</style>
+{% endblock css %}
+
+{% block body %}
+<form method="POST" action="/private">
+  {% csrf_token %}
+  <div class="container">
+    <h2 class="mb-4">Private Organization Scholarship Application</h2>
+
+    <div class="mb-3">
+      <label for="organization_name" class="form-label">Organization Name</label>
+      <input type="text" class="form-control" id="organization_name" name="organization_name" placeholder="Enter your organization's name">
+    </div>
+
+    <div class="mb-3">
+      <label for="tan_number" class="form-label">TAN Number</label>
+      <input type="text" class="form-control" id="tan_number" name="tan_number" placeholder="Enter your organization's TAN number">
+    </div>
+
+    <div class="mb-3">
+      <label for="scheme_name" class="form-label">Scheme Name</label>
+      <input type="text" class="form-control" id="scheme_name" name="scheme_name" placeholder="Name of the scholarship program">
+    </div>
+
+    <div class="mb-3">
+      <label for="registration_open_date" class="form-label">Registration Open Date</label>
+      <input type="date" id="registration_open_date" name="registration_open_date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="registration_close_date" class="form-label">Registration Close Date</label>
+      <input type="date" id="registration_close_date" name="registration_close_date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="eligible_applicants" class="form-label">Who Can Apply</label>
+      <textarea class="form-control" id="eligible_applicants" name="eligible_applicants" rows="3" placeholder="Describe who is eligible to apply for this scholarship"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="guidelines_pdf" class="form-label">Guidelines PDF (Upload)</label>
+      <input type="file" class="form-control" id="guidelines_pdf" name="guidelines_pdf">
+    </div>
+
+    <div class="mb-3">
+      <label for="website_link" class="form-label">Website Link</label>
+      <input type="url" class="form-control" id="website_link" name="website_link" placeholder="Enter your organization's website URL">
+    </div>
+
+    <div class="mb-3">
+      <label for="notices" class="form-label">Notices (Upload)</label>
+      <input type="file" class="form-control" id="notices" name="notices">
+    </div>
+
+    <div class="mb-3">
+      <label for="additional_information" class="form-label">Additional Information</label>
+      <textarea class="form-control" id="additional_information" name="additional_information" rows="3" placeholder="Provide any additional information about your scholarship program"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="scheme_closing_date" class="form-label">Scheme Closing Date</label>
+      <input type="date" id="scheme_closing_date" name="scheme_closing_date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="defective_app_verification_date" class="form-label">Defective Application Verification Date</label>
+      <input type="date" id="defective_app_verification_date" name="defective_app_verification_date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="institute_verification" class="form-label">Institute Verification</label>
+      <input type="date" id="institute_verification" name="institute_verification" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="dno_sno_mno_verification" class="form-label">DNO/SNO/MNO Verification</label>
+      <input type="date" id="dno_sno_mno_verification" name="dno_sno_mno_verification" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="guidelines_link" class="form-label">Guidelines Link</label>
+      <input type="url" class="form-control" id="guidelines_link" name="guidelines_link" placeholder="Enter the link to the scholarship guidelines">
+    </div>
+
+    <button type="submit" class="btn btn-primary your-submit-button-class">Submit</button>
+  </div>
+</form>
+{% endblock body %}
