@@ -6,7 +6,6 @@ import StudentRegistration from "../components/Scholarship/StudentRegistration";
 import OrgRegistration from "./Scholarship/OrganizationRegistration";
 import OrgLogin from "./Scholarship/OrganisationLogin";
 import RegisterScholarshipForm from "./Scholarship/ScholarshipForm";
-import AadhaarForm from "./Scholarship/AadhaarForm";
 
 function App() {
 
@@ -19,7 +18,6 @@ function App() {
             <Route path="/organization-registration" element={<OrgRegistration />} />
             <Route path="/organisation-login/:tanNumber" element={<OrgLogin />} />
             <Route path="/fill-scheme-details/:tanNumber" element={<RegisterScholarshipForm />} />
-            <Route path="/aadhar-form" element={<AadhaarForm />} />
         </Routes>
     );
 }

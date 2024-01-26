@@ -1,11 +1,11 @@
 import express from "express";
 import db from "../db.js";
-import * as api from "../apiFunctions.js"
+import * as aadharAPI from "../services/aadharService.js";
 
 const aadharRoute = express.Router();
 
 //Endpoint for fetching aadhar details from the database for a particular aadhar number.
-aadharRoute.get("/api/aadhar-details/:aadharNumber", api.fetchAadharDetails);
+aadharRoute.get("/api/aadhar-details/:aadharNumber", aadharAPI.fetchAadharDetails);
 
 //Endpoint for registering a student with Aadhar and Education details.
 // aadharRoute.post("/api/register-student", async (req, res) => {
@@ -41,7 +41,7 @@ aadharRoute.get("/api/aadhar-details/:aadharNumber", api.fetchAadharDetails);
 // });
 
 //Endpoint for verifying an Aadhar number.
-aadharRoute.get("/api/verify-aadhar", api.verifyAadhar)
+aadharRoute.get("/api/verify-aadhar", aadharAPI.verifyAadhar)
 
 
 export default aadharRoute;

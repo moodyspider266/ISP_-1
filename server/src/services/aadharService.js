@@ -1,56 +1,45 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import db from "../db.js";
+import { error, log } from "console";
 
-function registrationForm({ aadharNumber }) {
-    const [aadharDetails, setAadharDetails] = useState({});
-    const [educationDetails, setEducationDetails] = useState({
-        institute_name: "",
-        degree: "",
-        domain: "",
-        qualification: "",
-        start_date: "",
-        graduation_date: "",
-        current_year: ""
-    });
 
-    //handleInputChange function here is used to update the changes in the education details filled.
+//Fetching aadhar details from database for a particular aadhar number :
 
-    function handleInputChange(event) {
-        const { name, value } = event.target;
-        setEducationDetails((prevDetails) => ({
-            ...prevDetails,
-            [name]: value,
-        }));
-    };
+const fetchAadharDetails = async (req, res) => {
+    const aadharNumber = req.params.aadharNumber;
 
-    useEffect(() => {
-        //Fetch aadhar details when component mounts.
-        async function fetchAadharDetails() {
-            try {
-                const response = await axios.get(`/api/aadhar-details/${aadharNumber}`);
-                const result = response.data;
-                setAadharDetails(result);
-            } catch (error) {
-                console.error("Error fetching aadhar details:", error);
-            }
-        };
-        fetchAadharDetails();
-    }, [aadharNumber]);
-
-    async function handleSubmit() {
-        // Combining Aadhar details and education details for submission
-        const formData = { aadharDetails, ...educationDetails };
-
-        try {
-            //Making a POST request to our backend to insert data into the students table:
-            await axios.post(`/api/register-student`, formData);
-            console.log("Registration successful!");
-        } catch (error) {
-            console.error("Error registering student:", error);
+    //Checking if aadhar number exists or not in the table.
+    try {
+        const result = await db.query(`SELECT * FROM aadhar_details WHERE aadhar_no=${aadharNumber}`);
+        if (result.rows.length > 0) {
+            const aadharDetails = result.rows;
+            // console.log(aadharDetails);
+            res.json(aadharDetails);
+        } else {
+            res.status(404).json({ error: "Aadhar details not found!" });
         }
+    } catch (error) {
+        console.error("Error fetching aadhar details:", error);
+        res.json({ error: "Internal server error!" });
     }
+}
 
-    return;
-};
+//Verification of Aadhar Number:
 
-export default registrationForm;
+const verifyAadhar = async (req, res) => {
+    try {
+        const { aadharNumber } = req.body;
+
+        const aadharVerificationResult = await db.query(`SELECT * FROM aadhar_details WHERE aadhar_no=${aadharNumber}`);
+
+        if (aadharVerificationResult.rows.length === 0) {
+            return res.status(404).json({ error: "Aadhar number not verified." });
+        } else {
+            return res.status(200).json({ message: "Aadhar verified succesfully!" });
+        }
+    } catch (error) {
+        console.error("Error verifying aadhar: ", error);
+        res.status(500).json({ error: "Internal server error." });
+    }
+}
+
+export {verifyAadhar, fetchAadharDetails};
