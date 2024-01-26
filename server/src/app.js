@@ -10,6 +10,7 @@ import incomeTaxRoute from "./routes/incomeTaxRoute.js";
 const app = express();
 const port = 5000;
 
+app.use(express.json()); // Add this line to parse JSON data
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/student", studentRoute);

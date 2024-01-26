@@ -3,19 +3,21 @@ import Header from "../Header/Header";
 import axios from "axios";
 
 const StudentRegistrationForm = () => {
-    const [aadharNumber, setAadharNumber] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
-    const [otp, setOtp] = useState('');
-    const [verificationMessage, setVerificationMessage] = useState('');
+    const [aadharNumber, setAadharNumber] = useState("");
+    const [mobileNumber, setMobileNumber] = useState("");
+    const [otp, setOtp] = useState("");
+    const [verificationMessage, setVerificationMessage] = useState("");
   
     const handleVerifyAadhar = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/student/verify-aadhar', {
-          aadharNumber,
-        });
-  
+        const response = await axios.post('http://localhost:5000/aadhar/api/verify-aadhar', { aadharNumber: aadharNumber });
         // Assuming backend sends a message property in the response
-        setVerificationMessage(response.data.message);
+        if(response.data.message) {
+            setVerificationMessage(response.data.message);
+        }
+        else {
+            alert(response.data.error);
+        }
       } catch (error) {
         console.error('Error verifying Aadhar:', error);
       }
@@ -45,7 +47,7 @@ const StudentRegistrationForm = () => {
   
         {verificationMessage && <p>{verificationMessage}</p>}
   
-        {verificationMessage === 'Aadhar verified successfully, please enter your mobile number' && (
+        {verificationMessage.includes("successfully") && (
           <div>
             <label>
               Mobile Number:
