@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function RegistrationForm({ aadharNumber }) {
+function StudentRegistrationForm({ aadharNumber }) {
     const [aadharDetails, setAadharDetails] = useState({});
     const [educationDetails, setEducationDetails] = useState({
         institute_name: "",
@@ -53,4 +53,4 @@ function RegistrationForm({ aadharNumber }) {
     return;
 };
 
-export default RegistrationForm;
+export default StudentRegistrationForm;

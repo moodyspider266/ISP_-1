@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import Header from "../Header/Header";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const StudentRegistrationForm = () => {
+const AadharStudentRegistration = () => {
+
+    const navigate = useNavigate();
+
     const [aadharNumber, setAadharNumber] = useState("");
-    const [mobileNumber, setMobileNumber] = useState("");
-    const [otp, setOtp] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [userEnteredOTP, setUserEnteredOTP] = useState("");
     const [verificationMessage, setVerificationMessage] = useState("");
+    const [message, setMessage] = React.useState(null);
   
     const handleVerifyAadhar = async () => {
       try {
@@ -23,19 +28,52 @@ const StudentRegistrationForm = () => {
       }
     };
   
-    const handleSendOtp = async () => {
+    const handleSendOtp = async (e) => {
+      e.preventDefault();
       try {
-        const response = await axios.post('http://localhost:5000/student/send-otp', {
-          mobileNumber,
+        const response = await axios.post('http://localhost:5000/aadhar/api/send-otp', {
+          phoneNumber : phoneNumber
         });
-  
+        
+        const responseOTP = response.data.otp;
+        const responseOTPMessage = response.data.message;
         // Assuming backend sends an otp property in the response
-        setOtp(response.data.otp);
-        alert(`OTP sent successfully. Your OTP is: ${response.data.otp}`);
+        console.log(responseOTP);
+        alert(responseOTPMessage);
       } catch (error) {
         console.error('Error sending OTP:', error);
       }
     };
+
+    const handleVerifyOtp = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post('http://localhost:5000/aadhar/api/verify-otp', {
+            phoneNumber : phoneNumber,
+            userEnteredOTP : userEnteredOTP,
+        });
+        
+        console.log(response.data);
+        if (response.data.status == "success") {
+          setMessage(response.data.message);
+        } else {
+          setMessage(response.data.message);
+        }
+      } catch (error) {
+        console.error("Error verifying OTP: ", error);
+      }
+    };
+
+    const handleLogin = async (e) => {
+      e.preventDefault();
+
+      try {
+        console.log('Aadhar Number:', aadharNumber);
+        navigate(`/student-registration-form/${aadharNumber}`);
+    } catch (error) {
+        console.error('Error logging in:', error);
+    }
+    }
   
     return (
       <div>
@@ -51,13 +89,33 @@ const StudentRegistrationForm = () => {
           <div>
             <label>
               Mobile Number:
-              <input type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} />
+              <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
             </label>
             <button onClick={handleSendOtp}>Send OTP</button>
           </div>
+        )}
+        
+        {verificationMessage.includes("successfully") && (
+          <div>
+            <label>
+              Enter OTP:
+              <input
+                  type="number"
+                  value={userEnteredOTP}
+                  onChange={(e) => setUserEnteredOTP(e.target.value)}
+              />
+            </label>
+            <button onClick={handleVerifyOtp}>Verify OTP</button>
+          </div>
+        )}
+        {message && <p className={message.includes('successfully') ? "text-green-500" : "text-red-500"}> {message}</p>}
+        {message && message.includes("successfully") && (
+            <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2' onClick={handleLogin}>
+              Login
+            </button>
         )}
       </div>
     );
   };
 
-export default StudentRegistrationForm;;
+export default AadharStudentRegistration;;

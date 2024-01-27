@@ -2,22 +2,24 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import { StudentRegistrationGuidelines, OrganizationRegistrationGuidelines } from "./Scholarship/NewRegistrationPage";
-import StudentRegistration from "../components/Scholarship/StudentRegistration";
+import AadharStudentRegistration from "../components/Scholarship/StudentRegistration";
 import OrgRegistration from "./Scholarship/OrganizationRegistration";
 import OrgLogin from "./Scholarship/OrganisationLogin";
-import RegisterScholarshipForm from "./Scholarship/ScholarshipForm";
+import OrgScholarshipForm from "./Scholarship/OrgScholarshipForm";
+import StudentRegistrationForm from "./Scholarship/StudentRegistrationForm";
 
 function App() {
 
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/registration-student" element={<StudentRegistrationGuidelines />} />
-            <Route path="/student-registration" element={<StudentRegistration />} />
-            <Route path="/registration-organization" element={<OrganizationRegistrationGuidelines />} />
-            <Route path="/organization-registration" element={<OrgRegistration />} />
-            <Route path="/organisation-login/:tanNumber" element={<OrgLogin />} />
-            <Route path="/fill-scheme-details/:tanNumber" element={<RegisterScholarshipForm />} />
+            <Route path="/" element={<Home />} /> //Path to Home Page
+            <Route path="/registration-student" element={<StudentRegistrationGuidelines />} />  //Path to Guidelines Page for Students
+            <Route path="/student-registration" element={<AadharStudentRegistration />} />  // Path to Aadhar Registration for Students
+            <Route path="/student-registration-form/:aadharNumber" element={<StudentRegistrationForm />} /> //Path to Student Registration Form for Students
+            <Route path="/registration-organization" element={<OrganizationRegistrationGuidelines />} />  //Path to Guidelines Page for Organisations
+            <Route path="/organization-registration" element={<OrgRegistration />} />  //Path to TAN Registration for Organisations
+            <Route path="/organisation-login/:tanNumber" element={<OrgLogin />} />  //Path to Login Page for Organisations
+            <Route path="/fill-scheme-details/:tanNumber" element={<OrgScholarshipForm />} />   //Path to fill scholarship form for Organisations
         </Routes>
     );
 }

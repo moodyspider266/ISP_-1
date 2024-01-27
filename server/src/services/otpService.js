@@ -14,7 +14,7 @@ const sendOTP = async (req, res) => {
         otpStorage[phoneNumber] = otp;
 
         res.status(200).json({
-            message: `OTP sent to mobile number: ${phoneNumber}`,
+            message: `OTP sent to mobile number: ${phoneNumber} \nOTP : ${otp}`,
             otp: otp,
         });
     } catch (error) {

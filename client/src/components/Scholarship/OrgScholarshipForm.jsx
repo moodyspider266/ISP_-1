@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-const RegisterScholarshipForm = () => {
+const OrgScholarshipForm = () => {
 
     const navigate = useNavigate();
     const { tanNumber } = useParams();
@@ -137,4 +137,4 @@ const RegisterScholarshipForm = () => {
     )
 }
 
-export default RegisterScholarshipForm;
+export default OrgScholarshipForm;
