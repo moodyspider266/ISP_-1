@@ -1,11 +1,12 @@
 import express from "express";
+import * as studentAPI from "../services/studentService.js";
+import * as otpAPI from "../services/otpService.js";
 
 const studentRoute = express.Router();
 
-//Endpoint for registering a student with Aadhar and Education details.
+studentRoute.use(express.json());
 
-studentRoute.get("/", (req, res) => {
-    res.send("students page");
-});
+//Endpoint for registering a student with Aadhar and Education details.
+studentRoute.post("/api/register-student", studentAPI.registerStudent );
 
 export default studentRoute;

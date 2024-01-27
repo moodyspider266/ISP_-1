@@ -16,9 +16,6 @@ aadharRoute.post("/api/send-otp", otpAPI.sendOTP);
 //Endpoint for verifying OTP:
 aadharRoute.post("/api/verify-otp", otpAPI.verifyOTP);
 
-//Endpoint for registering a student with Aadhar and Education details.
-aadharRoute.post("/api/register-student", aadharAPI.registerStudent);
-
 //Endpoint for verifying an Aadhar number.
 aadharRoute.post("/api/verify-aadhar", aadharAPI.verifyAadhar)
 

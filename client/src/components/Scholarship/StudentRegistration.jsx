@@ -111,7 +111,7 @@ const AadharStudentRegistration = () => {
         {message && <p className={message.includes('successfully') ? "text-green-500" : "text-red-500"}> {message}</p>}
         {message && message.includes("successfully") && (
             <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2' onClick={handleLogin}>
-              Login
+              Proceed to register
             </button>
         )}
       </div>

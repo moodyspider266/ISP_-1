@@ -31,7 +31,7 @@ const OrgLogin = () => {
             const otp = response.data.otp;
             const message = response.data.message;
             console.log(otp);
-            alert(`${message}\nOTP: ${otp}`);
+            alert(`${message}\n`);
 
         } catch (error) {
             console.error("Error sending OTP:", error);
