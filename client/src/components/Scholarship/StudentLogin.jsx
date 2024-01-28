@@ -2,18 +2,13 @@ import React from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-const StudentRegistrationForm = () => {
+const StudentLogin = () => {
 
     const navigate = useNavigate();
     const { aadharNumber } = useParams();
 
     const [educationDetails, setEducationDetails] = React.useState({
-        aadharNumber: aadharNumber,
-        instName: "",
-        degree: "",
-        startDate: "",
-        graduationDate: "",
-        currentYear: ""
+        aadharNumber : ""
     });
 
 
@@ -32,7 +27,7 @@ const StudentRegistrationForm = () => {
         console.log(educationDetails);
 
         try {
-            const response = await axios.post(`http://localhost:5000/student/api/register-student/${aadharNumber}`, {educationDetails});
+            const response = await axios.post(`http://localhost:5000/student/api/register-student/${aadharNumber}`, educationDetails);
             console.log(response.data);
             alert(response.data.message);
         }
@@ -50,7 +45,7 @@ const StudentRegistrationForm = () => {
             currentYear: ""
         })
 
-        navigate(`/student-login/${aadharNumber}`)
+        navigate("/")
     };
 
     return (
@@ -158,4 +153,4 @@ const StudentRegistrationForm = () => {
     )
 }
 
-export default StudentRegistrationForm;
+export default StudentLogin;
