@@ -131,16 +131,16 @@ const StudentRegistrationForm = () => {
                     <label htmlFor="graduationYear">Current Year of your degree:</label>
                         <select
                           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                          id="graduationYear"
-                          name="graduationYear"
-                          value={educationDetails.graduationYear}
+                          id="currentYear"
+                          name="currentYear"
+                          value={educationDetails.currentYear}
                           onChange={handleInputChange}
                         >
-                          <option value="2018">First</option>
-                          <option value="2019">Second</option>
-                          <option value="2020">Third</option>
-                          <option value="2021">Fourth</option>
-                          <option value="2022">Fifth</option>
+                          <option value="First">First</option>
+                          <option value="Second">Second</option>
+                          <option value="Third">Third</option>
+                          <option value="Fourth">Fourth</option>
+                          <option value="Fifth">Fifth</option>
                         </select>
                     </div>
                     <div className="flex items-center justify-center">
